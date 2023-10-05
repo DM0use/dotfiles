@@ -33,12 +33,12 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
 
-    dependencies = {
-     "jose-elias-alvarez/null-ls.nvim",
-     config = function()
-       require "custom.configs.null-ls"
-     end,
-   },
+  --   dependencies = {
+  --    "jose-elias-alvarez/null-ls.nvim",
+  --    config = function()
+  --      require "custom.configs.null-ls"
+  --    end,
+  --  },
 
     config = function()
         require "plugins.configs.lspconfig"
@@ -46,18 +46,45 @@ local plugins = {
     end,
   },
 
- {
-   "williamboman/mason.nvim",
-   opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "html-lsp",
-        "prettier",
-        "stylua"
-      }
+--  {
+--    "williamboman/mason.nvim",
+--    opts = {
+--       ensure_installed = {
+--         "lua-language-server",
+--         "html-lsp",
+--         "prettier",
+--         "stylua"
+--       }
+--     },
+--   },
+-- }
+
+  {
+    "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
+    config = function()
+      require "custom.configs.mason"
+    end,
   },
+
+  {
+    "nvimtools/none-ls.nvim", -- configure formatters & linters
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
+    dependencies = {
+      "jay-babu/mason-null-ls.nvim",
+    },
+    config = function()
+      require "custom.configs.none-ls"
+    end,
+  },
+
 }
+
+
 
 
 return plugins
