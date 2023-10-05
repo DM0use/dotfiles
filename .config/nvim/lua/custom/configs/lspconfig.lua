@@ -6,11 +6,8 @@ local lspconfig = require "lspconfig"
 local servers = {
   "html",
   "cssls",
-  "clangd",
   "dockerls",
-  "eslint",
   "emmet_ls",
-  "jsonls",
   "tsserver",
   "pyright",
   "tailwindcss",
