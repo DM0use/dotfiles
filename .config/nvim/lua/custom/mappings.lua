@@ -28,4 +28,12 @@ M.tabufline = {
   },
 }
 
+M.auto_session = {
+  n = {
+    -- save and restore sessions
+    ["<leader>ww"] = { "<cmd>SessionRestore<CR>", "Restore session for cwd" },
+    ["<leader>ws"] = { "<cmd>SessionSave<CR>", "Save session for cwd" },
+  }
+}
+
 return M

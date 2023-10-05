@@ -60,10 +60,11 @@ local plugins = {
     end,
   },
 
-    {
+  {
     "rmagatti/auto-session",
+    lazy = false,
     config = function()
-        require "custom.configs.auto-session"
+      require "custom.configs.auto-session"
     end,
   },
 
