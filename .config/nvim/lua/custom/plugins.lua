@@ -32,31 +32,10 @@ local plugins = {
     -- In order to modify the `lspconfig` configuration:
   {
     "neovim/nvim-lspconfig",
-
-  --   dependencies = {
-  --    "jose-elias-alvarez/null-ls.nvim",
-  --    config = function()
-  --      require "custom.configs.null-ls"
-  --    end,
-  --  },
-
     config = function()
         require "custom.configs.lspconfig"
     end,
   },
-
---  {
---    "williamboman/mason.nvim",
---    opts = {
---       ensure_installed = {
---         "lua-language-server",
---         "html-lsp",
---         "prettier",
---         "stylua"
---       }
---     },
---   },
--- }
 
   {
     "williamboman/mason.nvim",
@@ -78,6 +57,13 @@ local plugins = {
     },
     config = function()
       require "custom.configs.none-ls"
+    end,
+  },
+
+    {
+    "rmagatti/auto-session",
+    config = function()
+        require "custom.configs.auto-session"
     end,
   },
 
